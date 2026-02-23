@@ -4,6 +4,7 @@ import {useState} from 'react';
 import Button from '../ui/Button';
 import Card from '../ui/Card';
 import Select from '../ui/Select';
+import AnimalOption from '../ui/AnimalOption';
 
 const countries = [
   'Germany',
@@ -79,20 +80,15 @@ export default function Wizard({onComplete}: Props) {
           </h2>
 
           <div className="flex gap-4">
-            {animals.map((a) => (
-              <button
-                key={a}
-                onClick={() => setAnimal(a)}
-                className={`flex-1 h-12 rounded-2xl border ${
-                  animal === a
-                    ? 'bg-green-600 text-white'
-                    : ''
-                }`}
-              >
-                {a}
-              </button>
-            ))}
-          </div>
+  {animals.map((a) => (
+    <AnimalOption
+      key={a}
+      type={a as 'cat' | 'dog'}
+      selected={animal === a}
+      onClick={() => setAnimal(a)}
+    />
+  ))}
+</div>
 
           <Button
             disabled={!animal}
