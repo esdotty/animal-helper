@@ -1,9 +1,10 @@
 'use client';
 
 import {useState} from 'react';
+import {useTranslations} from 'next-intl';
 import Button from '../ui/Button';
 import Card from '../ui/Card';
-import Select from '../ui/Select';
+import Dropdown from '../ui/Dropdown';
 import AnimalOption from '../ui/AnimalOption';
 
 const countries = [
@@ -34,9 +35,12 @@ export default function Wizard({onComplete}: Props) {
   const [to, setTo] = useState('');
   const [animal, setAnimal] = useState('');
 
+  const t = useTranslations('Wizard');
+
   const from = 'Morocco';
 
   return (
+    <Card>
     <div className="flex flex-col gap-6">
 
       {step === 1 && (
@@ -57,12 +61,15 @@ export default function Wizard({onComplete}: Props) {
             Destination country
           </h2>
 
-          <Select
-            value={to}
-            onChange={setTo}
-            options={countries}
-            placeholder="Select country"
-          />
+          <Dropdown
+  value={to}
+  onChange={setTo}
+  placeholder={t('selectCountry')}
+  options={countries.map(c => ({
+    value: c,
+    label: c
+  }))}
+/>
 
           <Button
             disabled={!to}
@@ -101,5 +108,6 @@ export default function Wizard({onComplete}: Props) {
         </>
       )}
     </div>
+    </Card>
   );
 }
