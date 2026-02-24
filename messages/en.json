@@ -1,6 +1,10 @@
 {
-  "Home": {
-    "title": "Animal Export Helper",
-    "start": "I found an animal"
+  "Wizard": {
+    "fromCountry": "From country",
+    "destinationCountry": "Destination country",
+    "animalType": "Animal type",
+    "next": "Next",
+    "showChecklist": "Show checklist",
+    "selectCountry": "Select country"
   }
 }

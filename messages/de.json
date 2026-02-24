@@ -1,6 +1,10 @@
 {
-  "Home": {
-    "title": "Tierexport Hilfe",
-    "start": "Ich habe ein Tier gefunden"
+  "Wizard": {
+    "fromCountry": "Herkunftsland",
+    "destinationCountry": "Zielland",
+    "animalType": "Tierart",
+    "next": "Weiter",
+    "showChecklist": "Checkliste anzeigen",
+    "selectCountry": "Land auswählen"
   }
 }
